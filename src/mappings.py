@@ -117,16 +117,17 @@ class Mapper:
     def disable_save_state(self):
         if self.config['save_state'] == False:
             self.config.pop('save_last_n_steps_state')
-    
+    def handle_paths(self):
+        config = self.config
+        config['pretrained_model_name_or_path'] = os.path.join(config['base_model_dir'], config['base_model'])
+        name = f"{config['lora_name']}_{config['version']}"
+        config['output_name'] = os.path.join(config['output_dir'],name, name)
     
     def preprocess_config(self): 
         config = self.config
         config.update(constants)
         #directories
-        config['pretrained_model_name_or_path'] = os.path.join(config['base_model_dir'], config['base_model'])
-        name = f"{config['lora_name']}_{config['version']}"
-        config['output_name'] = os.path.join(config['output_dir'], name)
-        
+        self.handle_paths()
         #lora weight calculations
         if config['precision'] == 'auto':
             if config['lora_weight'] == 'fp32': config['precision'] = 'fp16'
