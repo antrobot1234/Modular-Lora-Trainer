@@ -1,5 +1,5 @@
-# Furry Diffusion LoRA Training 
-This repository is for the antrogent lora trainer by antrobot and argentVASIMR. This is a work-in-progress total conversion from using powershell scripts to using direct python logic and yaml files.
+# Modular Lora Trainer
+Modular Lora Trainer (M.L.D) is a work-in-progress total conversion from argentVASIMR's use-me.ps1 script redone and reworked in python, with extended functionality.
 
 While this repository is currently technically usable, it is far from feature-complete, so use it and your own risk.
 
