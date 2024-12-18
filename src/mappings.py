@@ -114,6 +114,11 @@ class Mapper:
         if(config['save_amount'] > 0):
             config['save_every_n_steps'] = int(config['base_steps'] / config['save_amount'])
             self.logger.info(f"save_every_n_steps set to {config['save_every_n_steps']}")
+    def disable_save_state(self):
+        if self.config['save_state'] == False:
+            self.config.pop('save_last_n_steps_state')
+    
+    
     def preprocess_config(self): 
         config = self.config
         config.update(constants)
@@ -134,6 +139,7 @@ class Mapper:
         self.scale_steps()
         self.warmup_steps()
         self.save_config()
+        self.disable_save_state()
 
         check_minimums(config) #TODO make this into a class method
         self.other_mappings()
