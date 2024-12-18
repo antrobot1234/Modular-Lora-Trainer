@@ -1,6 +1,6 @@
 # Resume
-  save_state    : true
-  resume        : true
+  save_state    : false
+  resume        : false
   resume_path   : "" # leave blank to auto-fill based on lora name and prev version
   #save_last_n_steps : 200 # before you uncomment this, make sure that this gets disabled if resume is false
 
