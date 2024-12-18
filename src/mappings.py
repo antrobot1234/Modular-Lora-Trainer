@@ -116,12 +116,16 @@ class Mapper:
             self.logger.info(f"save_every_n_steps set to {config['save_every_n_steps']}")
     def disable_save_state(self):
         if self.config['save_state'] == False:
-            self.config.pop('save_last_n_steps_state')
+            self.config.pop('save_last_n_steps_state',None)
     def handle_paths(self):
         config = self.config
         config['pretrained_model_name_or_path'] = os.path.join(config['base_model_dir'], config['base_model'])
         name = f"{config['lora_name']}_{config['version']}"
-        config['output_name'] = os.path.join(config['output_dir'],name, name)
+        base_output_path = os.path.join(config['output_dir'],name)
+        config['output_dir'] = base_output_path
+        #If path does not exist, create it
+        if not os.path.exists(base_output_path):
+            os.makedirs(base_output_path)
     
     def preprocess_config(self): 
         config = self.config
