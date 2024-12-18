@@ -123,6 +123,7 @@ class Mapper:
         name = f"{config['lora_name']}_{config['version']}"
         base_output_path = os.path.join(config['output_dir'],name)
         config['output_dir'] = base_output_path
+        config['output_name'] = name
         #If path does not exist, create it
         if not os.path.exists(base_output_path):
             os.makedirs(base_output_path)
