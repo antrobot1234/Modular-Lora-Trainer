@@ -127,8 +127,13 @@ class Mapper:
             name = "__".join(names)
             self.logger.info(f"auto_name is set to true, using {name} as lora name")
         else:
-            name = f"{config['lora_name']}_{config['version']}"
-        base_output_path = os.path.join(config['output_dir'],config['lora_name'],config['version'])
+            name = config['lora_name']
+        if config['version'] is None or config['version'] == '':
+            join_path = name
+        else:
+            name += f"_{config['version']}"
+            join_path = os.path.join(name, config['version'])
+        base_output_path = os.path.join(config['output_dir'], join_path)
         config['output_dir'] = base_output_path
         config['output_name'] = name
         #If path does not exist, create it
