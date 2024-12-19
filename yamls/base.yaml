@@ -27,6 +27,7 @@
   prev_version  : "" # if empty, sets disables resuming
   comment       : ""                             
   save_amount   : 10 # 0 to disable (doing so will also disable image previews.
+  auto_name     : false #if set to true, the lora name will be based off of the dataset name
 
 #dataset
   base_res      : 1024

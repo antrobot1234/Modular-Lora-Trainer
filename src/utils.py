@@ -1,5 +1,6 @@
 import yaml
 import os
+import re
 def read_yaml(path: str) -> dict:
     with open(path, 'r') as f:
         return yaml.safe_load(f)
@@ -13,3 +14,10 @@ def stack_yamls(paths: list[str],root_dir: str = None) -> dict:
     for path in paths:
         out.update(read_yaml(path))
     return out
+def find_training_names(path: str) -> list[str]:
+    #training folders are any directory that starts with some number and then an underscore (e.g: 12_folder)
+    l = []
+    for f in os.listdir(path):
+        if re.match(r'^[0-9]+_.*$',f):
+            l.append(str(re.sub(r'^[0-9]+_','',f)))
+    return l

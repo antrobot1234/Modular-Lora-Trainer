@@ -1,6 +1,7 @@
 from logger import Logger
 from validator import Validator
 import os
+import utils
 renames={
     "keep_tags": "keep_tokens",
     "class_dir": "reg_data_dir", #TODO see if this is actually correct nomenclature
@@ -120,7 +121,13 @@ class Mapper:
     def handle_paths(self):
         config = self.config
         config['pretrained_model_name_or_path'] = os.path.join(config['base_model_dir'], config['base_model'])
-        name = f"{config['lora_name']}_{config['version']}"
+
+        if config['auto_name']:
+            names = utils.find_training_names(config['dataset_dir'])
+            name = "__".join(names)
+            self.logger.info(f"auto_name is set to true, using {name} as lora name")
+        else:
+            name = f"{config['lora_name']}_{config['version']}"
         base_output_path = os.path.join(config['output_dir'],config['lora_name'],config['version'])
         config['output_dir'] = base_output_path
         config['output_name'] = name
