@@ -121,7 +121,7 @@ class Mapper:
         config = self.config
         config['pretrained_model_name_or_path'] = os.path.join(config['base_model_dir'], config['base_model'])
         name = f"{config['lora_name']}_{config['version']}"
-        base_output_path = os.path.join(config['output_dir'],name)
+        base_output_path = os.path.join(config['output_dir'],config['lora_name'],config['version'])
         config['output_dir'] = base_output_path
         config['output_name'] = name
         #If path does not exist, create it
