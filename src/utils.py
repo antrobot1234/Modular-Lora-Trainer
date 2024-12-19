@@ -19,5 +19,7 @@ def find_training_names(path: str) -> list[str]:
     l = []
     for f in os.listdir(path):
         if re.match(r'^[0-9]+_.*$',f):
-            l.append(str(re.sub(r'^[0-9]+_','',f)))
+            #make sure that it's a folder and not a file
+            if os.path.isdir(os.path.join(path,f)):
+                l.append(str(re.sub(r'^[0-9]+_','',f)))
     return l
