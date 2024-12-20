@@ -85,7 +85,9 @@
   min_snr_gamma  : 1
   max_grad_norm  : 1
   correct_alpha  : false # Apply scaling to alpha, multiplying by sqrt(network_dim)
-  network_module : "networks.lora"
+  network_module : "networks.lora" 
+    #use "networks.lora" for lora. 
+    #use "lycoris.kohya" for lycoris (make sure lycoris is installed in your SD-scripts venv)
 
   optimizer_args:
     weight_decay: 0.01
