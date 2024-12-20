@@ -12,3 +12,5 @@ TODO: This section will describe how to set up and use this project. rough outli
 4. edit the directories yaml to point to the model install, dataset, and output folder locations.
 5. run using the bat/bash scripts.
 You can find us here: discord.gg/furrydiffusion
+
+NOTE: if you wish to train using lycoris, you must first install the lycoris-lora pip package onto your sd-scripts install.
