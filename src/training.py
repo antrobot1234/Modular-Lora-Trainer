@@ -51,6 +51,7 @@ def train(arg_dict: dict, sd_scripts_install: str):
     flags = generate_flags(arg_dict)
     args = parser.parse_args(flags)
     train_util.verify_command_line_training_args(args)
+    args = train_util.read_config_from_file(args, parser)
     print("\n-- Beginning training --")
     trainer.train(args)
     os.chdir(old_work_dir) 
