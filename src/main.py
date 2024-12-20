@@ -5,7 +5,6 @@ import argparse
 import os
 #TODO:
 # - Add a mode to convert a yaml stack to a single yaml modifier file
-# - Add a mode to convert a yaml stack into a toml file for direct sd-scripts usage
 
 def main():
     parser = get_parser()
