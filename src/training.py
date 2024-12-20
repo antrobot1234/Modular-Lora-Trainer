@@ -32,6 +32,11 @@ def train(arg_dict: dict, sd_scripts_install: str):
     import sdxl_train_network as tn_sdxl
     import library.train_util as train_util
     
+    try:
+        import lycoris
+    except ImportError:
+        if arg_dict['network_module'] == 'lycoris.kohya':
+            raise ImportError("lycoris.kohya requires lycoris to be installed in your SD-scripts venv")
     sdxl = arg_dict['sdxl']
 
     if sdxl: 
