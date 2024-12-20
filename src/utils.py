@@ -2,6 +2,7 @@ import yaml
 import os
 import re
 def read_yaml(path: str) -> dict:
+    path = path if path.endswith('.yaml') else path + '.yaml' #allow the user to pass in a yaml file without explicitly adding the yaml extension
     with open(path, 'r') as f:
         return yaml.safe_load(f)
 def write_yaml(path: str, dict: dict) -> None:
