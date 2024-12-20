@@ -23,3 +23,6 @@ def find_training_names(path: str) -> list[str]:
             if os.path.isdir(os.path.join(path,f)):
                 l.append(str(re.sub(r'^[0-9]+_','',f)))
     return l
+
+def get_difference(a: dict,b: dict) -> dict:
+    return {k:v for k,v in a.items() if v != b[k]}
