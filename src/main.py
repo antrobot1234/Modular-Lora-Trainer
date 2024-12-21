@@ -28,7 +28,7 @@ def main():
     arg_dict = utils.stack_yamls(yaml_list,'yamls')
     if args.output_to_toml is not None: output_toml(args.output_to_toml, arg_dict)
     if args.output_to_yaml is not None: output_yaml(args.output_to_yaml, arg_dict)
-    train(arg_dict, args.script_dir)
+    train(arg_dict, arg_dict['sd-scripts'])
 
 if __name__ == "__main__":
     main()

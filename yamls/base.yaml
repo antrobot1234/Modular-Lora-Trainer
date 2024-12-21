@@ -9,6 +9,7 @@
   output_dir      : D:\StableDiffusionProjects\SDOutput
   class_dir       : D:\StableDiffusionProjects\ClassImg
   base_model_dir  : C:\Users\antro\Documents\Matrix\Models\StableDiffusion
+  sd-scripts      : D:\StableDiffusionProjects\sd-scripts
   prompts         : "" # Leave blank if you don't want sample images
   logging_dir         : logs
 
